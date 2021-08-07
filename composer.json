@@ -1,0 +1,23 @@
+{
+    "name": "cryptounifier/php-sdk",
+    "description": "CryptoUnifier API PHP Integration.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["sdk", "cryptocurrency", "bitcoin", "ethereum", "litecoin"],
+    "authors": [
+        {
+            "name": "Crypto Unifier",
+            "email": "contact@cryptounifier.io",
+            "role": "lead"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^7.3"
+    },
+    "autoload": {
+        "psr-4": { 
+            "CryptoUnifier\\" : "src/" 
+        }
+    }
+}
