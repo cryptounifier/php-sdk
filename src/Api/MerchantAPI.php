@@ -39,7 +39,7 @@ class MerchantAPI extends BaseAPI
     public function createInvoice(array $cryptocurrencies, ?string $currency = null, ?float $targetValue = null, ?string $title = null, ?string $description = null)
     {
         return $this->executeRequest('POST', 'create-invoice', [
-            'cryptocurrencies' => $cryptocurrencies,
+            'cryptocurrencies' => json_encode($cryptocurrencies),
             'currency'         => $currency,
             'target_value'     => $targetValue,
             'title'            => $title,
@@ -50,7 +50,7 @@ class MerchantAPI extends BaseAPI
     public function estimateInvoicePrice(array $cryptocurrencies, ?string $currency = null, ?float $targetValue = null)
     {
         return $this->executeRequest('POST', 'estimate-invoice-price', [
-            'cryptocurrencies' => $cryptocurrencies,
+            'cryptocurrencies' => json_encode($cryptocurrencies),
             'currency'         => $currency,
             'target_value'     => $targetValue,
         ]);

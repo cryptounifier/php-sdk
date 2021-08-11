@@ -17,9 +17,8 @@ abstract class BaseAPI
     public function __construct(string $suffix, array $headers)
     {
         $this->client = new Client([
-            'base_uri'    => $this->baseEndpoint . $suffix . '/',
-            'http_errors' => false,
-            'headers'     => $headers,
+            'base_uri' => $this->baseEndpoint . $suffix . '/',
+            'headers'  => $headers,
         ]);
     }
 

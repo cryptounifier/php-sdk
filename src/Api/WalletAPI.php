@@ -34,14 +34,14 @@ class WalletAPI extends BaseAPI
     public function validateAddresses(array $addresses)
     {
         return $this->executeRequest('POST', 'validate-addresses', [
-            'addresses' => $addresses,
+            'addresses' => json_encode($addresses),
         ]);
     }
 
     public function estimateFee(array $destinations, ?float $feePerByte = null, ?string $extraField = null, ?string $tokenIdentifier = null, ?string $tokenDecimals = null)
     {
         return $this->executeRequest('POST', 'estimate-fee', [
-            'destinations'    => $destinations,
+            'destinations'    => json_encode($destinations),
             'feePerByte'      => $feePerByte,
             'extraField'      => $extraField,
             'tokenIdentifier' => $tokenIdentifier,
@@ -52,7 +52,7 @@ class WalletAPI extends BaseAPI
     public function sendTransaction(array $destinations, ?float $feePerByte = null, ?string $extraField = null, ?string $tokenIdentifier = null, ?string $tokenDecimals = null)
     {
         return $this->executeRequest('POST', 'send-transaction', [
-            'destinations'    => $destinations,
+            'destinations'    => json_encode($destinations),
             'feePerByte'      => $feePerByte,
             'extraField'      => $extraField,
             'tokenIdentifier' => $tokenIdentifier,
