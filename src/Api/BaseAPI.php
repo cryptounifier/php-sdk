@@ -25,7 +25,7 @@ abstract class BaseAPI
     public function executeRequest(string $method, string $uri, array $body = [])
     {
         $options = array_filter([
-            ($method === 'post' ? 'form_params' : 'query') => $body,
+            ($method === 'POST' ? 'form_params' : 'query') => $body,
         ]);
 
         return json_decode($this->client->request($method, $uri, $options)->getBody());
