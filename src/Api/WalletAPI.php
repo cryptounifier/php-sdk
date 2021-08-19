@@ -41,22 +41,22 @@ class WalletAPI extends BaseAPI
     public function estimateFee(array $destinations, ?float $feePerByte = null, ?string $extraField = null, ?string $tokenIdentifier = null, ?string $tokenDecimals = null)
     {
         return $this->executeRequest('POST', 'estimate-fee', [
-            'destinations'    => json_encode($destinations),
-            'feePerByte'      => $feePerByte,
-            'extraField'      => $extraField,
-            'tokenIdentifier' => $tokenIdentifier,
-            'tokenDecimals'   => $tokenDecimals,
+            'destinations'     => json_encode($destinations),
+            'fee_per_byte'     => $feePerByte,
+            'extra_field'      => $extraField,
+            'token_identifier' => $tokenIdentifier,
+            'token_decimals'   => $tokenDecimals,
         ]);
     }
 
     public function sendTransaction(array $destinations, ?float $feePerByte = null, ?string $extraField = null, ?string $tokenIdentifier = null, ?string $tokenDecimals = null)
     {
         return $this->executeRequest('POST', 'send-transaction', [
-            'destinations'    => json_encode($destinations),
-            'feePerByte'      => $feePerByte,
-            'extraField'      => $extraField,
-            'tokenIdentifier' => $tokenIdentifier,
-            'tokenDecimals'   => $tokenDecimals,
+            'destinations'     => json_encode($destinations),
+            'fee_per_byte'     => $feePerByte,
+            'extra_field'      => $extraField,
+            'token_identifier' => $tokenIdentifier,
+            'token_decimals'   => $tokenDecimals,
         ]);
     }
 }
