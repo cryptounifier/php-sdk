@@ -21,10 +21,17 @@ class MerchantAPI extends BaseAPI
         ]);
     }
 
-    public function processInvoice(?string $invoiceHash = null)
+    public function processInvoices(array $invoiceHashes)
     {
-        return $this->executeRequest('POST', 'process-invoice', [
-            'invoice_hash' => $invoiceHash,
+        return $this->executeRequest('POST', 'process-invoices', [
+            'invoice_hashes' => $invoiceHashes,
+        ]);
+    }
+
+    public function forwardInvoices(array $invoiceHashes)
+    {
+        return $this->executeRequest('POST', 'forward-invoices', [
+            'invoice_hashes' => $invoiceHashes,
         ]);
     }
 

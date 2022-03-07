@@ -9,7 +9,7 @@ $client = new WalletAPI('', '', 'trx');
 
 var_dump($client->getDepositAddresses());
 
-var_dump($client->getBalance('1002000'));
+var_dump($client->getBalance());
 
 try {
     echo $client->sendTransaction(['DSMe7j5vVRgXRynJAACmjp8JQoFvJ7ud99' => 1])->message->txid;

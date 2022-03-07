@@ -2,45 +2,21 @@
 
 namespace CryptoUnifier\Api;
 
-class WalletAPI extends BaseAPI
+class WalletTokenAPI extends BaseAPI
 {
-    public function __construct(string $walletKey, string $secretKey, string $cryptoSymbol)
+    public function __construct(string $walletKey, string $secretKey, string $cryptoSymbol, string $tokenSymbol)
     {
         $headers = [
             'X-Wallet-Key' => $walletKey,
             'X-Secret-Key' => $secretKey,
         ];
 
-        parent::__construct("wallet/{$cryptoSymbol}", $headers);
-    }
-
-    public function getBlockchainInfo()
-    {
-        return $this->executeRequest('GET', 'blockchain-info');
-    }
-
-    public function getTransactionInfo(string $txid)
-    {
-        return $this->executeRequest('GET', 'transaction-info', [
-            'txid' => $txid,
-        ]);
-    }
-
-    public function getDepositAddresses()
-    {
-        return $this->executeRequest('GET', 'deposit-addresses');
+        parent::__construct("wallet/{$cryptoSymbol}/token/{$tokenSymbol}", $headers);
     }
 
     public function getBalance()
     {
         return $this->executeRequest('GET', 'balance');
-    }
-
-    public function validateAddresses(array $addresses)
-    {
-        return $this->executeRequest('POST', 'validate-addresses', [
-            'addresses' => json_encode($addresses),
-        ]);
     }
 
     public function estimateFee(array $destinations, ?float $feePerByte = null, ?string $extraField = null)
