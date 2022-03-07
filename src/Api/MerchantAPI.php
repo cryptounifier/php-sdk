@@ -62,4 +62,12 @@ class MerchantAPI extends BaseAPI
             'target_value'     => $targetValue,
         ]);
     }
+
+    public function recoverInvoicePrivateKey(string $invoiceHash, string $cryptocurrency)
+    {
+        return $this->executeRequest('POST', 'recover-invoice-private-key', [
+            'invoice_hash'   => $invoiceHash,
+            'cryptocurrency' => $cryptocurrency,
+        ]);
+    }
 }
