@@ -24,14 +24,14 @@ class MerchantAPI extends BaseAPI
     public function processInvoices(array $invoiceHashes)
     {
         return $this->executeRequest('POST', 'process-invoices', [
-            'invoice_hashes' => $invoiceHashes,
+            'invoice_hashes' => json_encode($invoiceHashes),
         ]);
     }
 
     public function forwardInvoices(array $invoiceHashes)
     {
         return $this->executeRequest('POST', 'forward-invoices', [
-            'invoice_hashes' => $invoiceHashes,
+            'invoice_hashes' => json_encode($invoiceHashes),
         ]);
     }
 
