@@ -36,10 +36,11 @@ class WalletAPI extends BaseAPI
         return $this->executeRequest('GET', 'balance');
     }
 
-    public function validateAddresses(array $addresses)
+    public function validateAddresses(array $addresses, ?bool $validateActivation = null)
     {
         return $this->executeRequest('POST', 'validate-addresses', [
             'addresses' => json_encode($addresses),
+            'validate_activation' => $validateActivation,
         ]);
     }
 
