@@ -33,7 +33,7 @@ var_dump($depositAddresses);
 You can use the `MerchantAPI` class for convenient access to API methods. Some are defined in the code:
 
 ```php
-use CryptoUnifier/Api/MerchantAPI;
+use baselineincome/Api/MerchantAPI;
 
 $client = new MerchantAPI('MERCHANT_KEY', 'SECRET_KEY');
 
