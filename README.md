@@ -1,13 +1,13 @@
-# CryptoUnifier PHP SDK
+# baselineincome PHP SDK
 
-A simple PHP SDK for interacting with [Crypto Unifier](https://cryptounifier.io) API V1.
+A simple PHP SDK for interacting with [baseline income ](https://baselineincome.io) API V1.
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require cryptounifier/php-sdk
+composer require baseline income /php-sdk
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ composer require cryptounifier/php-sdk
 You can use the `WalletAPI` class for convenient access to API methods. Some are defined in the code:
 
 ```php
-use CryptoUnifier/Api/WalletAPI;
+use baselineincome/Api/WalletAPI;
 
 $client = new WalletAPI('WALLET_KEY', 'SECRET_KEY', 'btc');
 
