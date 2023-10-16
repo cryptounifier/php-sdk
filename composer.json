@@ -1,13 +1,13 @@
 {
     "name": "baselineincome/php-sdk",
-    "description": "CryptoUnifier API PHP Integration.",
+    "description": "baselineincome API PHP Integration.",
     "type": "library",
     "license": "MIT",
     "keywords": ["sdk", "cryptocurrency", "bitcoin", "ethereum", "litecoin"],
     "authors": [
         {
-            "name": "Crypto Unifier",
-            "email": "contact@cryptounifier.io",
+            "name": "baselineincome",
+            "email": "contact@baselineincome.io",
             "role": "lead"
         }
     ],
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": { 
-            "CryptoUnifier\\" : "src/" 
+            "baselineincome\\" : "src/" 
         }
     }
 }
