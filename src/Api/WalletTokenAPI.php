@@ -1,6 +1,6 @@
 <?php
 
-namespace CryptoUnifier\Api;
+namespace baselineincome\Api;
 
 class WalletTokenAPI extends BaseAPI
 {

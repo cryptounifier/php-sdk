@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use CryptoUnifier\Api\WalletAPI;
+use baselineincome\Api\WalletAPI;
 use GuzzleHttp\Exception\BadResponseException;
 
 $client = new WalletAPI('', '', 'trx');
