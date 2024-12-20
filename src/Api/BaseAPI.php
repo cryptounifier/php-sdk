@@ -24,10 +24,10 @@ abstract class BaseAPI
         $this->setBaseUrl($baseUrl);
     }
 
-    public function setBaseUrl(string $apiUrl): void
+    public function setBaseUrl(string $baseUrl): void
     {
         $this->client = new Client([
-            'base_uri' => $apiUrl . $this->suffix . '/',
+            'base_uri' => $baseUrl,
             'headers'  => $this->headers,
         ]);
     }
@@ -38,6 +38,6 @@ abstract class BaseAPI
             ($method === 'POST' ? 'form_params' : 'query') => $body,
         ]);
 
-        return json_decode($this->client->request($method, $uri, $options)->getBody());
+        return json_decode($this->client->request($method, $this->suffix.'/'.$uri, $options)->getBody());
     }
 }
