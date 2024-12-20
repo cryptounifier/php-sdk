@@ -4,19 +4,19 @@ namespace CryptoUnifier\Api;
 
 class WalletAPI extends BaseAPI
 {
-    public function __construct(string $walletKey, string $secretKey, string $cryptoSymbol)
+    public function __construct(string $baseUrl, string $identifierKey, string $secretKey, string $symbol, string $network)
     {
         $headers = [
-            'X-Wallet-Key' => $walletKey,
-            'X-Secret-Key' => $secretKey,
+            'X-Identifier-Key' => $identifierKey,
+            'X-Secret-Key'     => $secretKey,
         ];
 
-        parent::__construct("wallet/{$cryptoSymbol}", $headers);
+        parent::__construct($baseUrl, "{$symbol}/{$network}", $headers);
     }
 
-    public function getBlockchainInfo()
+    public function getBlockchainStatus()
     {
-        return $this->executeRequest('GET', 'blockchain-info');
+        return $this->executeRequest('GET', 'blockchain-status');
     }
 
     public function getTransactionInfo(string $txid)
@@ -26,9 +26,9 @@ class WalletAPI extends BaseAPI
         ]);
     }
 
-    public function getDepositAddresses()
+    public function generateAddresses()
     {
-        return $this->executeRequest('GET', 'deposit-addresses');
+        return $this->executeRequest('GET', 'generate-addresses');
     }
 
     public function getBalance()
@@ -39,25 +39,25 @@ class WalletAPI extends BaseAPI
     public function validateAddresses(array $addresses, ?bool $validateActivation = null)
     {
         return $this->executeRequest('POST', 'validate-addresses', [
-            'addresses' => json_encode($addresses),
+            'addresses'           => $addresses,
             'validate_activation' => $validateActivation,
         ]);
     }
 
-    public function estimateFee(array $destinations, ?float $feePerByte = null, ?string $extraField = null)
+    public function estimateFee(array $destinations, ?int $feeRate = null, ?string $extraField = null)
     {
         return $this->executeRequest('POST', 'estimate-fee', [
-            'destinations' => json_encode($destinations),
-            'fee_per_byte' => $feePerByte,
+            'destinations' => $destinations,
+            'fee_rate'     => $feeRate,
             'extra_field'  => $extraField,
         ]);
     }
 
-    public function sendTransaction(array $destinations, ?float $feePerByte = null, ?string $extraField = null)
+    public function sendTransaction(array $destinations, ?int $feeRate = null, ?string $extraField = null)
     {
         return $this->executeRequest('POST', 'send-transaction', [
-            'destinations' => json_encode($destinations),
-            'fee_per_byte' => $feePerByte,
+            'destinations' => $destinations,
+            'fee_rate'     => $feeRate,
             'extra_field'  => $extraField,
         ]);
     }

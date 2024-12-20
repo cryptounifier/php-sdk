@@ -6,8 +6,6 @@ use GuzzleHttp\Client;
 
 abstract class BaseAPI
 {
-    protected string $defaultUrl = 'https://cryptounifier.io/api/v1/';
-
     protected Client $client;
 
     protected string $apiKey;
@@ -18,15 +16,15 @@ abstract class BaseAPI
 
     protected array $headers;
 
-    public function __construct(string $suffix, array $headers)
+    public function __construct(string $baseUrl, string $suffix, array $headers)
     {
         $this->suffix  = $suffix;
         $this->headers = $headers;
 
-        $this->setApiUrl($this->defaultUrl);
+        $this->setBaseUrl($baseUrl);
     }
 
-    public function setApiUrl(string $apiUrl): void
+    public function setBaseUrl(string $apiUrl): void
     {
         $this->client = new Client([
             'base_uri' => $apiUrl . $this->suffix . '/',
