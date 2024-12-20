@@ -38,6 +38,6 @@ abstract class BaseAPI
             ($method === 'POST' ? 'form_params' : 'query') => $body,
         ]);
 
-        return json_decode($this->client->request($method, $this->suffix.'/'.$uri, $options)->getBody());
+        return json_decode($this->client->request($method, $this->suffix.'/'.$uri, $options)->getBody(), true);
     }
 }
